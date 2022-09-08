@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgba(210, 205, 185, 0.993);
+}
+
+.header{
+    background-color: rgb(142, 217, 192);
+    position:relative;
+    width: auto;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__content img{
+    max-width: 300px;
+    max-height: 250px;
+    height: auto;
+    width: auto;
+}
+.header1 {
+    color: #36A0FF;
+    font-size: 27px;
+    padding: 10px;
+}
+
+.bigicon {
+    font-size: 35px;
+    color: #36A0FF;
+}
+
+img{
+    height:250px;
+    width:100%;
+}
+  
+div [class^="col-"]{
+    padding-left:5px;
+    padding-right:5px;
+}
+
+.card{
+    transition:0.5s;
+    cursor:pointer;
+}
+
+.card-title{  
+    font-size:15px;
+    transition:1s;
+    cursor:pointer;
+}
+
+.card-title i{  
+    font-size:15px;
+    transition:1s;
+    cursor:pointer;
+    color:#ffa710
+}
+
+.card-title i:hover{
+    transform: scale(1.25) rotate(100deg); 
+    color:#18d4ca;
+    
+}
+
+.card:hover{
+    transform: scale(1.05);
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
+}
+
+.card-text{
+    height:80px;  
+}
+  
+.card::before, .card::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: scale3d(0, 0, 1);
+    transition: transform .3s ease-out 0s;
+    background: rgba(255, 255, 255, 0.1);
+    content: '';
+    pointer-events: none;
+}
+
+.card::before {
+    transform-origin: left top;
+}
+
+.card::after {
+    transform-origin: right bottom;
+}
+
+.card:hover::before, .card:hover::after, .card:focus::before, .card:focus::after {
+    transform: scale3d(1, 1, 1);
+}

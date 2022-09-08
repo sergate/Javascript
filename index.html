@@ -1,12 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script src="./app.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/d85f442e42.js" crossorigin="anonymous"></script>
+    <title>Mara Bollo - Pasteleria Creativa</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header__content">
+        <img
+          src="./assets/images/logo_definitivo_Mara_Bollo-2-removebg.webp"
+          alt="logo de la pasteleria"
+        />
+      </div>
+    </header>
+    
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+          <nav class="navbar navbar-expand-lg justify-content-center">
+            <div class="container-fluid">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"
+                      >Inicio</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">Quienes Somos</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a
+                      class="nav-link active dropdown-toggle"
+                      href="#"
+                      id="navbarDropdownMenuLink"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Productos
+                    </a>
+                    <ul
+                      class="dropdown-menu" style="background-color: rgba(210, 205, 185, 0.993);"
+                      aria-labelledby="navbarDropdownMenuLink"
+                    >
+                      <li><a class="dropdown-item" href="#">Box Dulces</a></li>
+                      <li><a class="dropdown-item" href="#">Mesas Tematicas</a></li>
+                      <li><a class="dropdown-item" href="#">Tortas Cumpleaños</a></li> 
+                      <li><a class="dropdown-item" href="#">Tortas Clasicas</a></li> 
+                      <li><a class="dropdown-item" href="#">Desayunos</a></li> 
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">Como Comprar</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">Contacto</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div> 
+    <div class="container mt-2">
+        <div class="row">
+          <div class="col-md-3 col-sm-6 py-2">
+            <div class="card card-block">
+              <img src="./assets/images/box tematicas/box 2.webp" alt="Desayuno">
+              <h5 class="card-title mt-3 mb-3 text-center">Desayuno</h5>
+              <a href="#" class="btn btn-primary">Agregar al Carrito</a>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 py-2">
+            <div class="card card-block">
+              <img src="./assets/images/mesas tematicas/mesa 4.webp" alt="mesa tematica">
+              <h5 class="card-title  mt-3 mb-3 text-center">Mesa Tematica</h5>
+              <a href="#" class="btn btn-primary">Agregar al Carrito</a>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 py-2">
+            <div class="card card-block">
+              <img src="./assets/images/tortas clasicas/pastafrola.webp" alt="pastafrola">
+              <h5 class="card-title  mt-3 mb-3 text-center">Pastafrola</h5>
+              <a href="#" class="btn btn-primary">Agregar al Carrito</a>
+            </div>
+          </div>  
+          <div class="col-md-3 col-sm-6 py-2">
+            <div class="card card-block">
+              <img src="./assets/images/cumpleaños/cumple 1.webp" alt="tortas">
+              <h5 class="card-title  mt-3 mb-3 text-center">Torta Cumpleaños</h5>
+              <a href="#" class="btn btn-primary">Agregar al Carrito</a>
+            </div>
+          </div>    
+        </div>
+    </div>
+    <div class="my-5">
+      <footer class="text-center text-lg-start" style="background-color: rgb(142, 217, 192);">
+        <div class="text-center fw-bold text-white p-2" style="background-color: rgba(0, 0, 0, 0.2);">
+          Seguinos para mas novedades
+        </div>
+        <div class="container d-flex justify-content-center py-5">
+          <button type="button" class="btn btn-primary btn-lg btn-floating mx-2">
+            <i class="fab fa-facebook-f"></i>
+          </button>
+          <button type="button" class="btn btn-primary btn-lg btn-floating mx-2">
+            <i class="fab fa-instagram"></i>
+          </button>
+        </div>
+        <div class="text-center fw-bold text-white p-2" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2022 Copyright: Todos los Derechos Reservados
+        </div>
+      </footer>
+    </div>
+    <script src="./js/app.js"></script>
+  </body>
 </html>

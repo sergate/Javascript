@@ -2,7 +2,6 @@ const productos = [
     {nombre: "Torta Cumpleaños", precio: 1500},
     {nombre: "Desayuno", precio: 1200},
     {nombre: "Pastrafrola", precio: 850},
-    {nombre: "Lemon Pie", precio: 1100},
     {nombre: "Mesa Tematica", precio: 3500},
 ];
 let carrito = []
@@ -26,7 +25,7 @@ while(seleccion != "no"){
     let producto = prompt("Agrega un producto a tu carrito")
     let precio = 0
 
-    if(producto === "Torta Cumpleaños" || producto === "Desayuno" || producto === "Pastafrola" || producto === "Lemon Pie" || producto === "Mesa Tematica"){
+    if(producto === "Torta Cumpleaños" || producto === "Desayuno" || producto === "Pastafrola" || producto === "Mesa Tematica"){
         switch(producto) {
             case "Torta Cumpleaños":
                 precio = 1500;
@@ -36,9 +35,6 @@ while(seleccion != "no"){
                 break;
             case "Pastafrola":
                 precio = 850;
-                break;
-            case "Lemon Pie":
-                precio = 1100;
                 break;
             case "Mesa Tematica":
                 precio = 3500;
@@ -53,16 +49,16 @@ while(seleccion != "no"){
         alert("Producto No Disponible")
     }
 
-    seleccion = prompt("Desea seguir comprando?")
+    seleccion = prompt("Desea seguir comprando? Ingresar Si o No")
 
     while(seleccion === "no"){
         alert("Gracias por su compra. Hasta Pronto")
         carrito.forEach((carritoFinal) => {
-            alert(`Producto: ${carritoFinal.producto}, Unidades: ${carritoFinal.unidades}, Total a pagar por producto ${carritoFinal.unidades * carritoFinal.precio}`)
+            alert(`Producto: ${carritoFinal.producto}, Unidades: ${carritoFinal.unidades}, Total a pagar por este producto: $ ${carritoFinal.unidades * carritoFinal.precio}`)
         })
     break;
     }
 }
 
 const total = carrito.reduce((acc, el) => acc + el.precio * el.unidades, 0)
-alert(`El total a pagar por su compra es: ${total}`)
+alert(`El total a pagar por su compra es: $ ${total}`)
