@@ -27,12 +27,7 @@ function addToCarritoItem(e){
 
 function addItemCarrito(newItem){
 
-  const alert = document.querySelector('.alert')
-
-  setTimeout( function(){
-    alert.classList.add('hide')
-  }, 2000)
-    alert.classList.remove('hide')
+  swal("", "Producto Añadido al carrito!", "success");
 
   const InputElemnto = tbody.getElementsByClassName('input__elemento')
   for(let i =0; i < carrito.length ; i++){
@@ -102,12 +97,7 @@ function removeItemCarrito(e){
     }
   }
 
-  const alert = document.querySelector('.remove')
-
-  setTimeout( function(){
-    alert.classList.add('remove')
-  }, 2000)
-    alert.classList.remove('remove')
+  swal("", "Producto Removido del carrito!", "error");
 
   tr.remove()
   CarritoTotal()

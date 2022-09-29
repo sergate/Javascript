@@ -84,7 +84,7 @@ body{
   transform: scale3d(1, 1, 1);
 }
 
-header, .alert{
+header{
   z-index: 100;
  }
 
@@ -124,8 +124,4 @@ header, .alert{
   font-weight: 700;
   margin-right: 30px;
   margin-bottom: 20px;
-}
-
-.hide, .remove{
-  display: none;
 }
