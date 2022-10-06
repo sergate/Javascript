@@ -1,129 +1,121 @@
-const Clickbutton = document.querySelectorAll('.button')
-const tbody = document.querySelector('.tbody')
-let carrito = []
+const $d = document;
+const $table = $d.querySelector(".crud-table");
+const $form = $d.querySelector(".crud-form");
+const $title = $d.querySelector(".crud-title");
+const $template = $d.getElementById("crud-template").content;
+const $fragement = $d.createDocumentFragment();
 
-Clickbutton.forEach(btn => {
-  btn.addEventListener('click', addToCarritoItem)
+const getAll = async () => {
+    try {
+        let res = await axios.get("http://localhost:4444/jugadores-de-river")
+        let json = await res.data;
+        json.forEach(el => {
+            $template.querySelector(".name").textContent = el.nombre;
+            $template.querySelector(".position").textContent = el.puesto;
+            $template.querySelector(".edit").dataset.id = el.id;
+            $template.querySelector(".edit").dataset.name = el.nombre;
+            $template.querySelector(".edit").dataset.position = el.puesto;
+            $template.querySelector(".delete").dataset.id = el.id;
+
+            let $clone = $d.importNode($template, true);
+
+            $fragement.appendChild($clone);
+        });
+
+        $table.querySelector("tbody").appendChild($fragement);
+    } catch (error) {
+        let message = error.statusText || "Ocurrió un error";
+        $table.insertAdjacentHTML("afterend", `Error: ${error.status}: ${message}`);
+    }
+}
+
+$d.addEventListener("DOMContentLoaded", getAll);
+
+
+$d.addEventListener("submit", async e => {
+    if (e.target === $form) {
+
+        e.preventDefault();
+
+        if (!e.target.id.value) {
+            try {
+                let options = {
+                    method: "POST",
+                    headers: {
+                        "Content-type": "application/json; charset=utf-8"
+                    },
+                    data: JSON.stringify({
+                        nombre: e.target.nombre.value,
+                        puesto: e.target.puesto.value
+                    })
+                };
+
+                let res = await axios("http://localhost:4444/jugadores-de-river", options)
+                let json = await res.data;
+
+                location.reload();
+            } catch (error) {
+                
+                let message = error.statusText || "Ocurrió un error";
+                $form.insertAdjacentHTML("afterend", `Error: ${error.status}: ${message}`);
+            }
+        } else {
+            try {
+                let options = {
+                    method: "PUT",
+                    headers: {
+                        "Content-type": "application/json; charset=utf-8"
+                    },
+                    data: JSON.stringify({
+                        nombre: e.target.nombre.value,
+                        puesto: e.target.puesto.value
+                    })
+                };
+
+                let res = await axios(`http://localhost:4444/jugadores-de-river/${e.target.id.value}`, options)
+                let json = await res.data;
+
+                location.reload();
+            } catch (error) {
+
+                let message = error.statusText || "Ocurrió un error";
+                $form.insertAdjacentHTML("afterend", `Error: ${error.status}: ${message}`);
+                
+            }
+        }
+    }
 })
 
-
-function addToCarritoItem(e){
-  const button = e.target
-  const item = button.closest('.card')
-  const itemTitle = item.querySelector('.card-title').textContent;
-  const itemPrice = item.querySelector('.precio').textContent;
-  const itemImg = item.querySelector('.card-img-top').src;
-  
-  const newItem = {
-    title: itemTitle,
-    precio: itemPrice,
-    img: itemImg,
-    cantidad: 1
-  }
-
-  addItemCarrito(newItem)
-}
-
-
-function addItemCarrito(newItem){
-
-  swal("", "Producto Añadido al carrito!", "success");
-
-  const InputElemnto = tbody.getElementsByClassName('input__elemento')
-  for(let i =0; i < carrito.length ; i++){
-    if(carrito[i].title.trim() === newItem.title.trim()){
-      carrito[i].cantidad ++;
-      const inputValue = InputElemnto[i]
-      inputValue.value++;
-      CarritoTotal()
-      return null;
+$d.addEventListener("click", async e => {
+    if (e.target.matches(".edit")) {
+        $title.textContent = "EDITAR JUGADOR";
+        $form.nombre.value = e.target.dataset.name;
+        $form.puesto.value = e.target.dataset.position;
+        $form.id.value = e.target.dataset.id;
     }
-  }
-  
-  carrito.push(newItem)
-  
-  renderCarrito()
-} 
 
+    if (e.target.matches(".delete")){
+        let confirmacion = confirm("¿Estás seguro que deseas eliminar el elemnto seleccionado?")
+        
+        if (confirmacion) {
+            try {
+                
+                let options = {
+                    method: "DELETE",
+                    headers: {
+                        "Content-type": "application/json; charset=utf-8"
+                    }
+                };
 
-function renderCarrito(){
-  tbody.innerHTML = ''
-  carrito.map(item => {
-    const tr = document.createElement('tr')
-    tr.classList.add('ItemCarrito')
-    const Content = `
-    
-    <th scope="row">1</th>
-            <td class="table__productos">
-              <img src=${item.img}  alt="">
-              <h6 class="title">${item.title}</h6>
-            </td>
-            <td class="table__price"><p>${item.precio}</p></td>
-            <td class="table__cantidad">
-              <input type="number" min="1" value=${item.cantidad} class="input__elemento">
-              <button class="delete btn btn-danger">x</button>
-            </td>
-    
-    `
-    tr.innerHTML = Content;
-    tbody.append(tr)
+                let res = await axios(`http://localhost:4444/jugadores-de-river/${e.target.dataset.id}`, options)
+                let json = await res.data;
 
-    tr.querySelector(".delete").addEventListener('click', removeItemCarrito)
-    tr.querySelector(".input__elemento").addEventListener('change', sumaCantidad)
-  })
-  CarritoTotal()
-}
-
-function CarritoTotal(){
-  let Total = 0;
-  const itemCartTotal = document.querySelector('.itemCartTotal')
-  carrito.forEach((item) => {
-    const precio = Number(item.precio.replace("$", ''))
-    Total = Total + precio*item.cantidad
-  })
-
-  itemCartTotal.innerHTML = `Total $${Total}`
-  addLocalStorage()
-}
-
-function removeItemCarrito(e){
-  const buttonDelete = e.target
-  const tr = buttonDelete.closest(".ItemCarrito")
-  const title = tr.querySelector('.title').textContent;
-  for(let i=0; i<carrito.length ; i++){
-
-    if(carrito[i].title.trim() === title.trim()){
-      carrito.splice(i, 1)
+                location.reload();
+            } catch (error) {
+                
+                let message = error.statusText || "Ocurrió un error";
+                $form.insertAdjacentHTML("afterend", `Error: ${error.status}: ${message}`);
+            }
+        }
     }
-  }
-
-  swal("", "Producto Removido del carrito!", "error");
-
-  tr.remove()
-  CarritoTotal()
-}
-
-function sumaCantidad(e){
-  const sumaInput  = e.target
-  const tr = sumaInput.closest(".ItemCarrito")
-  const title = tr.querySelector('.title').textContent;
-  carrito.forEach(item => {
-    if(item.title.trim() === title){
-      sumaInput.value < 1 ?  (sumaInput.value = 1) : sumaInput.value;
-      item.cantidad = sumaInput.value;
-      CarritoTotal()
-    }
-  })
-}
-
-function addLocalStorage(){
-  localStorage.setItem('carrito', JSON.stringify(carrito))
-}
-
-window.onload = function(){
-  const storage = JSON.parse(localStorage.getItem('carrito'));
-  if(storage){
-    carrito = storage;
-    renderCarrito()
-  }
-}
+})

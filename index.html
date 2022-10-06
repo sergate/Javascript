@@ -1,303 +1,61 @@
 <!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#bla"  />
-    <title>Mara Bollo - Pasteleria Creativa</title>
-    <!-- CSS only -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
-      crossorigin="anonymous"
-    />
+<html lang="es-AR">
+<head>
+   <!-- CHARSET -->
+   <meta charset="UTF-8">
+   <!-- IE-EDGE -->
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- VIEWPORT -->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- DESCRIPTION -->
+   <meta name="description" content="CRUD CON AXIOS">
+   <!-- AUTHOR -->
+   <meta name="author" content="Jose Silva Coelho">
+   <!-- TITTLE -->
+   <title>CRUD CON AXIOS</title>
+   <!-- STYLES -->
+   <link rel="stylesheet" href="./css/styles.css">
+<body>
 
-    <link rel="stylesheet" href="./css/style.css" />
-  </head>
-  <body>
-    <header class="header">
-      <div class="header__content">
-        <img
-          src="./img/logo_definitivo_Mara_Bollo-2-removebg.webp"
-          alt="logo de la pasteleria"
-        />
-      </div>
-    </header>
+  <h1>CRUD LOCAL CON AXIOS</h1>
 
-    <header class="container-fluid bg-dark position-sticky top-0">
-      <ul
-        class="nav nav-pills mb-3 py-3 container"
-        id="pills-tab"
-        role="tablist"
-      >
-        <li class="nav-item text-primary" role="presentation">
-          <a
-            class="nav-link active"
-            id="pills-home-tab"
-            data-bs-toggle="pill"
-            data-bs-target="#pills-home"
-            type="button"
-            role="tab"
-            aria-controls="pills-home"
-            aria-selected="true"
-            >Inicio</a
-          >
-        </li>
-        <li class="nav-item" role="presentation">
-          <a
-            class="nav-link"
-            id="pills-profile-tab"
-            data-bs-toggle="pill"
-            data-bs-target="#pills-profile"
-            type="button"
-            role="tab"
-            aria-controls="pills-profile"
-            aria-selected="false"
-            >Productos</a
-          >
-        </li>
-        <li class="nav-item" role="presentation">
-          <a
-            class="nav-link"
-            id="pills-contact-tab"
-            data-bs-toggle="pill"
-            data-bs-target="#pills-contact"
-            type="button"
-            role="tab"
-            aria-controls="pills-contact"
-            aria-selected="false"
-            >Carrito</a
-          >
-        </li>
-      </ul>
-    </header>
+  <section class="crud">
+    <article>
+      <h2 class="crud-title">AGREGAR NUEVO JUGADOR</h2>
+      <form class="crud-form">
+        <input class="input_label" type="text" name="nombre" placeholder="Nombre del jugador" required>
+        <input class="input_label" type="text" name="puesto" placeholder="Nombre del puesto" required>
+        <input class="input_submit" type="submit" value="GUARDAR">
+        <input type="hidden" name="id">
+      </form>
+    </article>
 
-    <div class="tab-content" id="pills-tabContent">
-      <div
-        class="tab-pane fade show active"
-        id="pills-home"
-        role="tabpanel"
-        aria-labelledby="pills-home-tab"
-      >
-      <div class="container mt-2">
-        <div class="row">
-          <div class="col-md-3 col-sm-6 py-2">
-            <div class="card card-block">
-              <img src="./img/box 2.webp" alt="box tematica">
-              <h5 class="card-title mt-3 mb-3 text-center">Box Tematicas</h5>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6 py-2">
-            <div class="card card-block">
-              <img src="./img/mesa 4.webp" alt="mesas tematicas">
-              <h5 class="card-title  mt-3 mb-3 text-center">Mesas Tematicas</h5>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6 py-2">
-            <div class="card card-block">
-              <img src="./img/pastafrola.webp" alt="tortas clasicas">
-              <h5 class="card-title  mt-3 mb-3 text-center">Tortas Clasicas</h5></div>
-            </div>
-          <div class="col-md-3 col-sm-6 py-2">
-            <div class="card card-block">
-              <img src="./img/cumple 1.webp" alt="tortas">
-              <h5 class="card-title  mt-3 mb-3 text-center">Tortas Cumpleaños</h5>
-            </div>
-          </div>    
-        </div>
-    </div>
-      </div>
-      <div
-        class="tab-pane fade container"
-        id="pills-profile"
-        role="tabpanel"
-        aria-labelledby="pills-profile-tab"
-      >
-
-        <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
-
-          <div class="col d-flex justify-content-center mb-4">
-            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
-              <h5 class="card-title pt-2 text-center text-primary">Torta de Cumpleaños Adultos</h5>
-              <img src="./img/cumple 1.webp" class="card-img-top" alt="...">
-              <div class="card-body">
-                <p class="card-text text-white-50 description">Torta de cumpleaños para adultos. Precio por kilo.</p>
-                <h5 class="text-primary">Precio: <span class="precio">$ 1800</span></h5>
-                <div class="d-grid gap-2">
-                <button  class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col d-flex justify-content-center mb-4">
-            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
-              <h5 class="card-title pt-2 text-center text-primary">Torta de Cumpleaños Niños</h5>
-              <img src="./img/cumple 2.webp" class="card-img-top" alt="...">
-              <div class="card-body">
-                <p class="card-text text-white-50 description">Torta de cumpleaños para Niños. Precio por kilo.</p>
-                <h5 class="text-primary">Precio: <span class="precio">$ 1500</span></h5>
-                <div class="d-grid gap-2">
-                <button  class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col d-flex justify-content-center mb-4">
-            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
-              <h5 class="card-title pt-2 text-center text-primary">Desayuno Dia del Padre</h5>
-              <img src="./img/box 2.webp" class="card-img-top" alt="...">
-              <div class="card-body">
-                <p class="card-text text-white-50 description">Desayuno para el dia del Padre. Incluye bandeja, taza y foto personalida en la caja.</p>
-                <h5 class="text-primary">Precio: <span class="precio">$ 2750</span></h5>
-                <div class="d-grid gap-2">
-                <button  class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col d-flex justify-content-center mb-4">
-            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
-              <h5 class="card-title pt-2 text-center text-primary">Mesa Tematica Cumpleaños</h5>
-              <img src="./img/mesa 2.webp" class="card-img-top" alt="...">
-              <div class="card-body">
-                <p class="card-text text-white-50 description">Realizadas con productos artesanales. Se pueden armar segun su necesidad. Precio por kilo.</p>
-                <h5 class="text-primary">Precio: <span class="precio">$ 1550</span></h5>
-                <div class="d-grid gap-2">
-                <button  class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col d-flex justify-content-center mb-4">
-            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
-              <h5 class="card-title pt-2 text-center text-primary">Mesa Tematica Casamiento</h5>
-              <img src="./img/mesa 4.webp" class="card-img-top" alt="...">
-              <div class="card-body">
-                <p class="card-text text-white-50 description">Realizadas con productos artesanales. Se pueden armar segun su necesidad. Precio por kilo.</p>
-                <h5 class="text-primary">Precio: <span class="precio">$ 1750</span></h5>
-                <div class="d-grid gap-2">
-                <button  class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col d-flex justify-content-center mb-4">
-            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
-              <h5 class="card-title pt-2 text-center text-primary">Pastafrola</h5>
-              <img src="./img/pastafrola.webp" class="card-img-top" alt="...">
-              <div class="card-body">
-                <p class="card-text text-white-50 description">Puede ser de membrillo o batata. Para disfrutar con unos mates.</p>
-                <h5 class="text-primary">Precio: <span class="precio">$ 950</span></h5>
-                <div class="d-grid gap-2">
-                <button  class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col d-flex justify-content-center mb-4">
-            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
-              <h5 class="card-title pt-2 text-center text-primary">Desayuno Dia de la Madre</h5>
-              <img src="./img/desayuno 6.webp" class="card-img-top" alt="...">
-              <div class="card-body">
-                <p class="card-text text-white-50 description">Desayuno para el dia de la madre. Incluye bandeja y taza.</p>
-                <h5 class="text-primary">Precio: <span class="precio">$ 2500</span></h5>
-                <div class="d-grid gap-2">
-                <button  class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-              </div>
-            </div>
-          </div>
-          <div class="col d-flex justify-content-center mb-4">
-            <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
-              <h5 class="card-title pt-2 text-center text-primary">Desayuno Adolescente</h5>
-              <img src="./img/desayuno 1.webp" class="card-img-top" alt="...">
-              <div class="card-body">
-                <p class="card-text text-white-50 description">Desayuno para adolescentes. Incluye bandeja y taza.</p>
-                <h5 class="text-primary">Precio: <span class="precio">$ 2200</span></h5>
-                <div class="d-grid gap-2">
-                <button  class="btn btn-primary button">Añadir a Carrito</button>
-              </div>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-
-      </div>
-      <div
-        class="tab-pane fade carrito"
-        id="pills-contact"
-        role="tabpanel"
-        aria-labelledby="pills-contact-tab"
-      >
-      <br>
-      <table class="table table-dark table-hover">
+    <article class="data-request">
+      <table class="crud-table">
         <thead>
-          <tr class="text-primary">
-            <th scope="col">#</th>
-            <th scope="col">Productos</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Cantidad</th>
+          <tr>
+            <th>Nombre</th>
+            <th>Puesto</th>
+            <th>Acciones</th>
           </tr>
         </thead>
-        <tbody class="tbody">
-          
-        
-          
-        </tbody>
+        <tbody></tbody>
       </table>
-      <br><br>
-      <div class="row mx-4">
-        <div class="col">
-          <h3 class="itemCartTotal text-white">Total: 0</h3>
-        </div>
-        <div class="col d-flex justify-content-end">
-          <button class="btn btn-success">COMPRAR</button>
-        </div>
-      </div>
-      
-      </div>
-    </div>
+    </article>
+  </section>
 
-    <!-- <footer class="bg-dark p-3 mt-5">
-      <p class="text-center m-0 text-muted">Mara Bollo - Pasteleria Creativa</p>
-    </footer> -->
+  <template id="crud-template">
+    <tr>
+      <td class="name"></td>
+      <td class="position"></td>
+      <td>
+        <button class="edit">Editar</button>
+        <button class="delete">Eliminar</button>
+      </td>
+    </tr>
+  </template>
 
-    <footer class="text-center text-lg-start" style="background-color: rgb(142, 217, 192);">
-        <div class="text-center fw-bold text-white p-2" style="background-color: rgba(0, 0, 0, 0.2);">
-          Seguinos para mas novedades
-        </div>
-        <div class="container d-flex justify-content-center py-5">
-          <button type="button" class="btn btn-primary btn-lg btn-floating mx-2">
-            <i class="fab fa-facebook-f"></i>
-          </button>
-          <button type="button" class="btn btn-primary btn-lg btn-floating mx-2">
-            <i class="fab fa-instagram"></i>
-          </button>
-        </div>
-        <div class="text-center fw-bold text-white p-2" style="background-color: rgba(0, 0, 0, 0.2);">
-          © 2022 Copyright: Todos los Derechos Reservados
-        </div>
-    </footer>
-
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.js"
-      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-      crossorigin="anonymous"
-    ></script>
-
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-    <script src="https://kit.fontawesome.com/d85f442e42.js" crossorigin="anonymous"></script>
-    <!-- JavaScript Bundle with Popper -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-      crossorigin="anonymous"
-    ></script>
-    <script src="./js/script.js"></script>
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./js/script.js"></script>
+</body>
 </html>

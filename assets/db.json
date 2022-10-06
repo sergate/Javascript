@@ -1,0 +1,29 @@
+{
+  "jugadores-de-river": [
+    {
+      "id": 1,
+      "nombre": "Franco Armani",
+      "puesto": "Arquero"
+    },
+    {
+      "id": 1,
+      "nombre": "Lucas Beltran",
+      "puesto": "Delantero"
+    },
+    {
+      "id": 3,
+      "nombre": "Javier Pinola",
+      "puesto": "Defensa"
+    },
+    {
+      "id": 4,
+      "nombre": "Jonatan Maidana",
+      "puesto": "Defensa"
+    },
+    {
+      "id": 5,
+      "nombre": "Enzo Perez",
+      "puesto": "centrocampista"
+    }
+  ]
+}
