@@ -1,0 +1,50 @@
+[
+	{
+		"image": "/img/cumple 2.webp",
+		"title": "Torta de Cumpleaños Adultos",
+		"description": "Torta de cumpleaños para adultos. Precio por kilo.",
+		"price": "$ 1800"
+	},
+	{
+		"image": "/img/cumple 1.webp",
+		"title": "Torta de Cumpleaños Niños",
+		"description": "Torta de cumpleaños para Niños. Precio por kilo.",
+		"price": "$ 1500"
+	},
+	{
+		"image": "/img/desayuno 1.webp",
+		"title": "Desayuno Dia del Padre",
+		"description": "Desayuno para el dia del Padre. Incluye bandeja, taza y foto personalida en la caja.",
+		"price": "$ 2750"
+	},
+	{
+		"image": "/img/mesa 2.webp",
+		"title": "Mesa Tematica Cumpleaños",
+		"description": "Realizadas con productos artesanales. Se pueden armar segun su necesidad. Precio por kilo.",
+		"price": "$ 1550"
+	},
+	{
+		"image": "/img/mesa 4.webp",
+		"title": "Mesa Tematica Casamiento",
+		"description": "Realizadas con productos artesanales. Se pueden armar segun su necesidad. Precio por kilo.",
+		"price": "$ 1750"
+	},
+	{
+		"image": "/img/pastafrola.webp",
+		"title": "Pastafrola",
+		"description": "Puede ser de membrillo o batata. Para disfrutar con unos mates.",
+		"price": "$ 950"
+	},
+	{
+		"image": "/img/desayuno 6.webp",
+		"title": "Desayuno Dia de la Madre",
+		"description": "Desayuno para el dia de la madre. Incluye bandeja y taza.",
+		"price": "$ 2500"
+	},
+	{
+		"image": "/img/desayuno 1.webp",
+		"title": "Desayuno Adolescente",
+		"description": "Desayuno para adolescentes. Incluye bandeja y taza.",
+		"price": "$ 2200"
+	}
+]
