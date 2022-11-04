@@ -1,11 +1,17 @@
-const Clickbutton = document.querySelectorAll('.button')
+window.onload = function(){
+  const storage = JSON.parse(localStorage.getItem('carrito'));
+  if(storage){
+    carrito = storage;
+    renderCarrito()
+  }
+  const Clickbutton = document.querySelectorAll('.button')
+  Clickbutton.forEach(btn => {
+    btn.addEventListener('click', addToCarritoItem)
+  })
+}
+
 const tbody = document.querySelector('.tbody')
 let carrito = []
-
-Clickbutton.forEach(btn => {
-  btn.addEventListener('click', addToCarritoItem)
-})
-
 
 function addToCarritoItem(e){
   const button = e.target
@@ -23,7 +29,6 @@ function addToCarritoItem(e){
 
   addItemCarrito(newItem)
 }
-
 
 function addItemCarrito(newItem){
 
@@ -117,14 +122,6 @@ function sumaCantidad(e){
 
 function addLocalStorage(){
   localStorage.setItem('carrito', JSON.stringify(carrito))
-}
-
-window.onload = function(){
-  const storage = JSON.parse(localStorage.getItem('carrito'));
-  if(storage){
-    carrito = storage;
-    renderCarrito()
-  }
 }
 
 let http = new XMLHttpRequest();
