@@ -1,11 +1,17 @@
-const Clickbutton = document.querySelectorAll('.button')
+window.onload = function(){
+  const storage = JSON.parse(localStorage.getItem('carrito'));
+  if(storage){
+    carrito = storage;
+    renderCarrito()
+  }
+  const Clickbutton = document.querySelectorAll('.button')
+  Clickbutton.forEach(btn => {
+    btn.addEventListener('click', addToCarritoItem)
+  })
+}
+
 const tbody = document.querySelector('.tbody')
 let carrito = []
-
-Clickbutton.forEach(btn => {
-  btn.addEventListener('click', addToCarritoItem)
-})
-
 
 function addToCarritoItem(e){
   const button = e.target
@@ -23,7 +29,6 @@ function addToCarritoItem(e){
 
   addItemCarrito(newItem)
 }
-
 
 function addItemCarrito(newItem){
 
@@ -119,10 +124,30 @@ function addLocalStorage(){
   localStorage.setItem('carrito', JSON.stringify(carrito))
 }
 
-window.onload = function(){
-  const storage = JSON.parse(localStorage.getItem('carrito'));
-  if(storage){
-    carrito = storage;
-    renderCarrito()
-  }
+let http = new XMLHttpRequest();
+http.open('get', 'products.json', true);
+http.send();
+http.onload = function(){
+	if(this.readyState == 4 && this.status == 200){
+		let products = JSON.parse(this.responseText);
+		let output = "";
+		for(let item of products){
+			output += `
+        <div class="col d-flex justify-content-center mb-4">
+          <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+            <h5 class="card-title pt-2 text-center text-primary">${item.title}</h5>
+            <img src="${item.image}" class="card-img-top" alt="${item.title}">
+            <div class="card-body">
+              <p class="card-text text-white-50 description">${item.description}</p>
+              <h5 class="text-primary">Precio: <span class="precio">${item.price}</span></h5>
+              <div class="d-grid gap-2">
+              <button  class="btn btn-primary button">Añadir a Carrito</button>
+              </div>
+            </div>
+          </div>
+        </div>
+			`;
+		}
+		document.querySelector(".products").innerHTML = output;
+	}
 }

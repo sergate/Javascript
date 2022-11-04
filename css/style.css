@@ -55,7 +55,7 @@ body{
 }
 
 .card-text{
-  height:80px;  
+  height:50px;  
 }
 
 .card::before, .card::after {
@@ -123,4 +123,13 @@ header{
   font-weight: 700;
   margin-right: 30px;
   margin-bottom: 20px;
+}
+
+.products{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+  grid-gap: 20px;
+  margin: 50px auto;
+  max-width: 1240px;
+  padding: 10px;
 }
